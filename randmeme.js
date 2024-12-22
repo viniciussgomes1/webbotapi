@@ -1,26 +1,20 @@
-// Função para buscar arquivos de imagem aleatórios na pasta 'mems'
-function getRandomMeme() {
-  // URLs das imagens dentro da pasta 'mems'
-  const memes = [
-    "https://viniciussgomes1.github.io/webbotapi/mems/meme1.jpg",
-    "https://viniciussgomes1.github.io/webbotapi/mems/meme2.jpg",
-    "https://viniciussgomes1.github.io/webbotapi/mems/meme3.jpg"
+// randmeme.js
+window.onload = function() {
+  // Pasta onde as imagens estão armazenadas
+  const folderPath = 'https://viniciussgomes1.github.io/webbotapi/mems/';
+  
+  // Array com os nomes das imagens (adapte conforme suas imagens)
+  const imageNames = [
+    'image1.jpg',  // Nome da primeira imagem
+    'image2.png',  // Nome da segunda imagem
+    'image3.gif',  // Nome da terceira imagem
+    // Adicione mais imagens conforme necessário
   ];
 
-  // Seleciona um meme aleatório
-  const randomMeme = memes[Math.floor(Math.random() * memes.length)];
+  // Função para escolher uma imagem aleatória
+  const randomIndex = Math.floor(Math.random() * imageNames.length);
+  const randomImage = imageNames[randomIndex];
 
-  // Retorna o JSON com a URL do meme aleatório
-  const memeData = {
-    data: [
-      {
-        img: randomMeme
-      }
-    ]
-  };
-
-  return memeData;
-}
-
-// Exibir o JSON quando o script for acessado
-console.log(JSON.stringify(getRandomMeme()));
+  // Redireciona para a URL da imagem aleatória
+  window.location.href = folderPath + randomImage;
+};
